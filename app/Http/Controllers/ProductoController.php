@@ -24,7 +24,7 @@ class ProductoController extends Controller
                     ->orWhere('a.codigo', 'LIKE', '%' . $texto . '%');
             })
             ->where('a.estado', '=', 'Activo') // Filtrar por estado activo
-            ->orderBy('id_producto', 'desc')
+            ->orderBy('id_producto', 'asc')
             ->paginate(10);
 
         return view('almacen.producto.index', compact('productos', 'texto'));

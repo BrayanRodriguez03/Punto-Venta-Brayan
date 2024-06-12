@@ -26,7 +26,7 @@ class CategoriaController extends Controller
             $query=trim($request->get('texto'));
             $categorias=DB::table('categoria')->where('categoria','LIKE','%'.$query.'%')
             ->where('estatus', '=', '1')
-            ->orderBy('id_categoria', 'desc')
+            ->orderBy('id_categoria', 'asc')
             ->paginate(5);
             return view('almacen.categoria.index',["categoria"=>$categorias,"texto"=>$query]);
         }
